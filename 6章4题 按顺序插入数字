@@ -1,0 +1,24 @@
+#include<stdio.h>
+int aArray[10]={1,2,3,6,8,9,11,15,18};				//set up array
+int main()
+{
+	for(int i=0;i<10;i++)printf(",%d"+!i,aArray[i]);//show raw array
+	printf("\n");
+	int num=0,array_pin=9;
+	scanf("%d",&num);								//read num(waiting to insert)
+	for(int i=0;i<9;i++)							//to find the place
+	{
+		if(num<aArray[i])
+		{
+			array_pin=i;							//save the site,but don't place num
+			break;
+		}
+	}
+	for(int i=10;i>array_pin;i--)					//move others to the next sites
+	{
+		aArray[i]=aArray[i-1];
+	}
+	aArray[array_pin]=num;							//place the num
+	for(int i=0;i<10;i++)printf(",%d"+!i,aArray[i]);//show the result
+	return 0; 
+}
